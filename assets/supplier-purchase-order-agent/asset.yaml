@@ -3,13 +3,15 @@ kind: Asset
 
 metadata:
   name: supplier-purchase-order-agent
-  version: "1.0.0"
+  version: "1.0.3"
 
 type: agent
 
-container:
-  buildPath: .
-  port: 5000
+runtime:
+  type: cf
+  cf:
+    buildPath: .
+    port: 5000
 
 requires:
   - name: purchase-order-mcp-server

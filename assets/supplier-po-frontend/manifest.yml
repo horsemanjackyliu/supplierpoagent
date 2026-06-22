@@ -1,0 +1,15 @@
+---
+applications:
+  - name: supplier-po-frontend
+    buildpacks:
+      - nodejs_buildpack
+    path: .
+    memory: 256M
+    disk_quota: 1G
+    instances: 1
+    health-check-type: http
+    health-check-http-endpoint: /
+    command: npm start
+    env:
+      NODE_ENV: production
+      PORT: "3000"

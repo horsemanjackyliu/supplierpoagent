@@ -1,0 +1,9 @@
+{
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "env": {
+    "NEXT_PUBLIC_AGENT_URL": "https://27c30ede-2a17e47f.sap3eu12.c.run.ai.cloud.sap"
+  }
+}

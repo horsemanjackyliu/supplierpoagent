@@ -3,9 +3,10 @@ kind: Solution
 
 metadata:
   name: supplier-po-agent-0dfb9
-  version: 1.0.0
+  version: 1.0.3
   description: AI agent that helps suppliers query open purchase orders from SAP S/4HANA Cloud
 
 assets:
   - ref: ./assets/supplier-purchase-order-agent/asset.yaml
   - ref: ./assets/purchase-order-mcp-server/asset.yaml
+  - ref: ./assets/supplier-po-frontend/asset.yaml

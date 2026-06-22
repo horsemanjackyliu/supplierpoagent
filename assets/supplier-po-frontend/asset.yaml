@@ -1,0 +1,11 @@
+apiVersion: asset.sap/v1
+kind: Asset
+metadata:
+  name: supplier-po-frontend
+  version: 1.0.3
+type: application
+runtime:
+  type: cf
+  cf:
+    buildPath: .
+    port: 3000

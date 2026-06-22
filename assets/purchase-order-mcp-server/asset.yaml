@@ -3,7 +3,7 @@ kind: Asset
 
 metadata:
   name: purchase-order-mcp-server
-  version: "1.0.0"
+  version: "1.0.3"
   ordId: customer.mcpbuilder.s4:apiResource:supplier-po-agent-0dfb9_purchase-order-mcp-server:v1
   translation: mcp-translation/translation.json
 

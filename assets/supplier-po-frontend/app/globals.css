@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --sap-blue: #0070F2;
+    --sap-blue-dark: #003D7A;
+    --sap-shell-height: 44px;
+  }
+
+  html {
+    font-family: '72', system-ui, -apple-system, sans-serif;
+  }
+
+  body {
+    @apply bg-sap-gray-100 text-sap-gray-800;
+  }
+}
+
+@layer components {
+  .sap-shell {
+    @apply h-11 bg-sap-blue-dark flex items-center px-4 gap-4 shadow-md;
+  }
+
+  .sap-btn-primary {
+    @apply bg-sap-blue text-white px-4 py-2 rounded text-sm font-medium
+           hover:bg-sap-blue-dark transition-colors duration-150
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .sap-btn-ghost {
+    @apply text-sap-blue px-3 py-1.5 rounded text-sm
+           hover:bg-sap-blue-light transition-colors duration-150;
+  }
+
+  .sap-card {
+    @apply bg-white rounded border border-sap-gray-300 shadow-sm;
+  }
+
+  .sap-input {
+    @apply w-full border border-sap-gray-300 rounded px-3 py-2 text-sm
+           focus:outline-none focus:border-sap-blue focus:ring-1 focus:ring-sap-blue;
+  }
+
+  .message-user {
+    @apply bg-sap-blue text-white rounded-2xl rounded-tr-sm px-4 py-2.5 max-w-[75%] text-sm leading-relaxed;
+  }
+
+  .message-agent {
+    @apply bg-white border border-sap-gray-300 text-sap-gray-800 rounded-2xl rounded-tl-sm
+           px-4 py-2.5 max-w-[80%] text-sm leading-relaxed shadow-sm;
+  }
+
+  .typing-dot {
+    @apply w-2 h-2 bg-sap-gray-400 rounded-full animate-bounce;
+  }
+}
+
+/* Scrollbar */
+.chat-scroll::-webkit-scrollbar { width: 5px; }
+.chat-scroll::-webkit-scrollbar-track { background: transparent; }
+.chat-scroll::-webkit-scrollbar-thumb { @apply bg-sap-gray-300 rounded-full; }

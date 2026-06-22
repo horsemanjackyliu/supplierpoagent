@@ -1,0 +1,14 @@
+---
+applications:
+  - name: supplier-purchase-order-agent
+    buildpacks:
+      - python_buildpack
+    path: .
+    memory: 512M
+    disk_quota: 1G
+    instances: 1
+    health-check-type: http
+    health-check-http-endpoint: /.well-known/agent.json
+    command: python app/main.py
+    env:
+      HOST: "0.0.0.0"
