@@ -1,0 +1,12 @@
+apiVersion: asset.sap/v1  # API version — must be 'asset.sap/v1'
+kind: Asset               # Resource type — must be 'Asset' (capital A)
+
+metadata:                 # Asset identity — modifying the name after deployment will cause breaking changes (such as URLs of the deployed asset)
+  name: <asset-name>      # Identifying name using kebab case (only lower case chars and dashes, max 63 chars). Matches the directory name under assets/
+  version: 1.0.0          # Semantic version of this asset
+
+type: vercel-app          # Asset type — MUST be exactly 'vercel-app'. Do NOT use 'vercel-v0', 'v0', or 'frontend'. Required for the Joule Studio runtime deployer to route the asset.
+
+container:                # Container configuration the deployer uses to build and run the Vercel app
+  buildPath: .            # Always '.' — v0-synced files (package.json, app/, components/, …) live at the root of assets/<asset-name>/
+  port: 5000              # Port the v0 Next.js app listens on inside the container. Do not change unless the user has a hard requirement.

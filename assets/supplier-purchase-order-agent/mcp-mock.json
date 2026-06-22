@@ -1,0 +1,240 @@
+{
+  "servers": {
+    "purchase-order": {
+      "mcp_server_name": "customer.mcpbuilder.s4:apiResource:supplier-po-agent-0dfb9_purchase-order-mcp-server:v1",
+      "description": "MCP server for querying purchase orders from SAP S/4HANA Cloud Public Edition (CE_PURCHASEORDER_0001)",
+      "tools": {
+        "list_purchase_orders": {
+          "description": "Retrieve a list of purchase orders. Supports OData $filter, $top, $select, $orderby parameters. Use to list open POs for a given supplier.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "$filter": {
+                "type": "string",
+                "description": "OData filter expression, e.g. Supplier eq '1000001' and PurchaseOrderStatus eq 'N'"
+              },
+              "$top": {
+                "type": "integer",
+                "description": "Maximum number of records to return (max 100)"
+              },
+              "$select": {
+                "type": "string",
+                "description": "Comma-separated list of fields to return"
+              },
+              "$orderby": {
+                "type": "string",
+                "description": "Field and direction for sorting, e.g. CreationDate desc"
+              },
+              "$skip": {
+                "type": "integer",
+                "description": "Number of records to skip for pagination"
+              }
+            },
+            "required": []
+          },
+          "mock_response": {
+            "results": [
+              {
+                "PurchaseOrder": "4500001001",
+                "PurchaseOrderType": "NB",
+                "CompanyCode": "1000",
+                "PurchasingOrganization": "1000",
+                "PurchasingGroup": "001",
+                "Supplier": "1000001",
+                "DocumentCurrency": "EUR",
+                "ExchangeRate": "1.00000",
+                "NetPaymentDays": 30,
+                "CreationDate": "/Date(1748736000000)/",
+                "LastChangeDateTime": "/Date(1748822400000)/",
+                "PurchaseOrderStatus": "N",
+                "PurchaseOrderDate": "/Date(1748736000000)/",
+                "SupplierAddressID": "1000001",
+                "IncotermsClassification": "EXW",
+                "NetPriceAmount": "15000.00",
+                "TaxAmount": "2850.00",
+                "GrossAmount": "17850.00"
+              },
+              {
+                "PurchaseOrder": "4500001002",
+                "PurchaseOrderType": "NB",
+                "CompanyCode": "1000",
+                "PurchasingOrganization": "1000",
+                "PurchasingGroup": "001",
+                "Supplier": "1000001",
+                "DocumentCurrency": "EUR",
+                "ExchangeRate": "1.00000",
+                "NetPaymentDays": 30,
+                "CreationDate": "/Date(1746057600000)/",
+                "LastChangeDateTime": "/Date(1748304000000)/",
+                "PurchaseOrderStatus": "N",
+                "PurchaseOrderDate": "/Date(1746057600000)/",
+                "SupplierAddressID": "1000001",
+                "IncotermsClassification": "DDP",
+                "NetPriceAmount": "8500.00",
+                "TaxAmount": "1615.00",
+                "GrossAmount": "10115.00"
+              }
+            ]
+          }
+        },
+        "get_purchase_order_by_key": {
+          "description": "Retrieve a single purchase order by PO number including full header data.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "PurchaseOrder": {
+                "type": "string",
+                "description": "Purchase order number, e.g. '4500001001'"
+              }
+            },
+            "required": ["PurchaseOrder"]
+          },
+          "mock_response": {
+            "PurchaseOrder": "4500001001",
+            "PurchaseOrderType": "NB",
+            "CompanyCode": "1000",
+            "PurchasingOrganization": "1000",
+            "PurchasingGroup": "001",
+            "Supplier": "1000001",
+            "DocumentCurrency": "EUR",
+            "ExchangeRate": "1.00000",
+            "NetPaymentDays": 30,
+            "CreationDate": "/Date(1748736000000)/",
+            "LastChangeDateTime": "/Date(1748822400000)/",
+            "PurchaseOrderStatus": "N",
+            "PurchaseOrderDate": "/Date(1748736000000)/",
+            "SupplierAddressID": "1000001",
+            "IncotermsClassification": "EXW",
+            "NetPriceAmount": "15000.00",
+            "TaxAmount": "2850.00",
+            "GrossAmount": "17850.00",
+            "PaymentTerms": "N030",
+            "PurchaseOrderHeaderText": "Standard purchase order for raw materials"
+          }
+        },
+        "list_purchase_order_items": {
+          "description": "Retrieve line items for a purchase order. Returns material, quantity, delivery date, net price, and goods receipt status per line item.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "PurchaseOrder": {
+                "type": "string",
+                "description": "Purchase order number to retrieve items for"
+              },
+              "$filter": {
+                "type": "string",
+                "description": "Additional OData filter expression for line items"
+              },
+              "$top": {
+                "type": "integer",
+                "description": "Maximum number of line items to return (max 100)"
+              },
+              "$select": {
+                "type": "string",
+                "description": "Comma-separated list of fields to return"
+              }
+            },
+            "required": ["PurchaseOrder"]
+          },
+          "mock_response": {
+            "results": [
+              {
+                "PurchaseOrder": "4500001001",
+                "PurchaseOrderItem": "00010",
+                "PurchaseOrderItemText": "Raw Material A",
+                "Material": "MAT-001",
+                "MaterialGroup": "001",
+                "Plant": "1000",
+                "StorageLocation": "0001",
+                "OrderQuantity": "100.000",
+                "OrderQuantityUnit": "EA",
+                "NetPriceAmount": "75.00",
+                "NetPriceQuantity": "1.000",
+                "DocumentCurrency": "EUR",
+                "TaxCode": "V1",
+                "DeliveryDate": "/Date(1751328000000)/",
+                "ItemDeliveryAddressID": "1000",
+                "GoodsReceiptQuantity": "40.000",
+                "GoodsReceiptStatus": "B",
+                "IsCompletelyDelivered": false,
+                "QuantityInBaseUnit": "100.000",
+                "BaseUnit": "EA"
+              },
+              {
+                "PurchaseOrder": "4500001001",
+                "PurchaseOrderItem": "00020",
+                "PurchaseOrderItemText": "Raw Material B",
+                "Material": "MAT-002",
+                "MaterialGroup": "001",
+                "Plant": "1000",
+                "StorageLocation": "0001",
+                "OrderQuantity": "50.000",
+                "OrderQuantityUnit": "KG",
+                "NetPriceAmount": "100.00",
+                "NetPriceQuantity": "1.000",
+                "DocumentCurrency": "EUR",
+                "TaxCode": "V1",
+                "DeliveryDate": "/Date(1751328000000)/",
+                "ItemDeliveryAddressID": "1000",
+                "GoodsReceiptQuantity": "0.000",
+                "GoodsReceiptStatus": "A",
+                "IsCompletelyDelivered": false,
+                "QuantityInBaseUnit": "50.000",
+                "BaseUnit": "KG"
+              }
+            ]
+          }
+        },
+        "get_purchase_order_item_by_key": {
+          "description": "Retrieve a specific purchase order line item by PO number and item number, including goods receipt status and delivery information.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "PurchaseOrder": {
+                "type": "string",
+                "description": "Purchase order number"
+              },
+              "PurchaseOrderItem": {
+                "type": "string",
+                "description": "Line item number, e.g. '00010'"
+              }
+            },
+            "required": ["PurchaseOrder", "PurchaseOrderItem"]
+          },
+          "mock_response": {
+            "PurchaseOrder": "4500001001",
+            "PurchaseOrderItem": "00010",
+            "PurchaseOrderItemText": "Raw Material A",
+            "Material": "MAT-001",
+            "MaterialGroup": "001",
+            "Plant": "1000",
+            "StorageLocation": "0001",
+            "OrderQuantity": "100.000",
+            "OrderQuantityUnit": "EA",
+            "NetPriceAmount": "75.00",
+            "NetPriceQuantity": "1.000",
+            "DocumentCurrency": "EUR",
+            "TaxCode": "V1",
+            "DeliveryDate": "/Date(1751328000000)/",
+            "ItemDeliveryAddressID": "1000",
+            "GoodsReceiptQuantity": "40.000",
+            "GoodsReceiptStatus": "B",
+            "IsCompletelyDelivered": false,
+            "QuantityInBaseUnit": "100.000",
+            "BaseUnit": "EA"
+          }
+        }
+      }
+    }
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "created_for_agent": "supplier-purchase-order-agent",
+    "mock_mode": true,
+    "deterministic": true,
+    "total_servers": 1,
+    "total_tools": 4,
+    "generated_from": ["CE_PURCHASEORDER_0001 EDMX spec (manual — mcp-translation-file unavailable in this environment)"],
+    "generation_date": "2026-06-22"
+  }
+}

@@ -1,0 +1,269 @@
+{
+  "summary": {
+    "total": 45,
+    "passed": 45,
+    "failed": 0,
+    "score": 100.0
+  },
+  "sections": [
+    {
+      "name": "Structure Tests",
+      "marker": "structure",
+      "total": 3,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0,
+      "score": 100.0,
+      "tests": [
+        {
+          "name": "test_agent_directory_exists",
+          "outcome": "passed",
+          "duration": 0.0001
+        },
+        {
+          "name": "test_app_directory_exists",
+          "outcome": "passed",
+          "duration": 0.0001
+        },
+        {
+          "name": "test_requirements_txt_exists",
+          "outcome": "passed",
+          "duration": 0.0001
+        }
+      ]
+    },
+    {
+      "name": "Server Tests",
+      "marker": "server",
+      "total": 2,
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0,
+      "score": 100.0,
+      "tests": [
+        {
+          "name": "test_server_starts",
+          "outcome": "passed",
+          "duration": 0.0008
+        },
+        {
+          "name": "test_agent_card_endpoint",
+          "outcome": "passed",
+          "duration": 0.0138
+        }
+      ]
+    },
+    {
+      "name": "Agent Tests",
+      "marker": "agent_tests",
+      "total": 40,
+      "passed": 40,
+      "failed": 0,
+      "skipped": 0,
+      "score": 100.0,
+      "tests": [
+        {
+          "name": "test_gr_status_fully_received",
+          "outcome": "passed",
+          "duration": 2.9017
+        },
+        {
+          "name": "test_gr_status_partially_received",
+          "outcome": "passed",
+          "duration": 0.0021
+        },
+        {
+          "name": "test_gr_status_outstanding",
+          "outcome": "passed",
+          "duration": 0.0019
+        },
+        {
+          "name": "test_filter_by_supplier_in_system_prompt",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_filter_po_response_includes_filtered_results",
+          "outcome": "passed",
+          "duration": 0.001
+        },
+        {
+          "name": "test_top_parameter_limit_respected",
+          "outcome": "passed",
+          "duration": 0.0003
+        },
+        {
+          "name": "test_readonly_constraint_in_system_prompt",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_get_po_details_header_and_line_items",
+          "outcome": "passed",
+          "duration": 0.0027
+        },
+        {
+          "name": "test_get_po_details_not_found",
+          "outcome": "passed",
+          "duration": 0.0009
+        },
+        {
+          "name": "test_integration_supplier_po_query",
+          "outcome": "passed",
+          "duration": 1.4823
+        },
+        {
+          "name": "test_integration_po_detail_query",
+          "outcome": "passed",
+          "duration": 0.0035
+        },
+        {
+          "name": "test_integration_agent_handles_tool_error_gracefully",
+          "outcome": "passed",
+          "duration": 0.0008
+        },
+        {
+          "name": "test_list_purchase_orders_returns_po_list",
+          "outcome": "passed",
+          "duration": 0.0018
+        },
+        {
+          "name": "test_list_purchase_orders_empty_result",
+          "outcome": "passed",
+          "duration": 0.0008
+        },
+        {
+          "name": "test_build_mock_tools_returns_tools_from_mock_file",
+          "outcome": "passed",
+          "duration": 0.0042
+        },
+        {
+          "name": "test_build_mock_tools_returns_empty_when_file_missing",
+          "outcome": "passed",
+          "duration": 0.0001
+        },
+        {
+          "name": "test_build_mock_tools_returns_empty_on_invalid_json",
+          "outcome": "passed",
+          "duration": 0.0031
+        },
+        {
+          "name": "test_get_mcp_tools_ibd_testing_returns_mock_tools",
+          "outcome": "passed",
+          "duration": 0.0004
+        },
+        {
+          "name": "test_get_mcp_tools_raises_without_token",
+          "outcome": "passed",
+          "duration": 0.0008
+        },
+        {
+          "name": "test_get_mcp_tools_raises_with_none_token",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_set_and_reset_user_token",
+          "outcome": "passed",
+          "duration": 0.0001
+        },
+        {
+          "name": "test_set_none_token",
+          "outcome": "passed",
+          "duration": 0.0001
+        },
+        {
+          "name": "test_mock_tool_coroutine_returns_mock_response",
+          "outcome": "passed",
+          "duration": 0.0016
+        },
+        {
+          "name": "test_enhance_tool_description_basic",
+          "outcome": "passed",
+          "duration": 0.0001
+        },
+        {
+          "name": "test_enhance_tool_description_uses_fragment_name",
+          "outcome": "passed",
+          "duration": 0.0001
+        },
+        {
+          "name": "test_enhance_tool_description_none_tool",
+          "outcome": "passed",
+          "duration": 0.0001
+        },
+        {
+          "name": "test_enhance_tool_description_empty_description",
+          "outcome": "passed",
+          "duration": 0.0001
+        },
+        {
+          "name": "test_enhance_tool_name_long_server_name",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_enhance_tool_name_simple_server",
+          "outcome": "passed",
+          "duration": 0.0001
+        },
+        {
+          "name": "test_enhance_tool_name_sanitizes_invalid_chars",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_enhance_tool_name_truncates_long_names",
+          "outcome": "passed",
+          "duration": 0.0001
+        },
+        {
+          "name": "test_enhance_tool_name_none_tool",
+          "outcome": "passed",
+          "duration": 0.0001
+        },
+        {
+          "name": "test_is_retryable_4xx_not_retryable",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_is_retryable_5xx_is_retryable",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_is_retryable_generic_exception",
+          "outcome": "passed",
+          "duration": 0.0001
+        },
+        {
+          "name": "test_call_mcp_tool_success",
+          "outcome": "passed",
+          "duration": 0.0005
+        },
+        {
+          "name": "test_call_mcp_tool_none_raises",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_call_mcp_tool_returns_none_raises",
+          "outcome": "passed",
+          "duration": 16.0081
+        },
+        {
+          "name": "test_call_mcp_tool_truncates_large_response",
+          "outcome": "passed",
+          "duration": 0.0018
+        },
+        {
+          "name": "test_call_mcp_tool_non_retryable_raises_immediately",
+          "outcome": "passed",
+          "duration": 0.0029
+        }
+      ],
+      "coverage": 75.79
+    }
+  ]
+}
